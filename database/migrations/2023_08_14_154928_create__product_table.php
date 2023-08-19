@@ -13,6 +13,9 @@ return new class extends Migration
     {
         Schema::create('product', function (Blueprint $table) {
             $table->id();
+            $table->float('thickness');
+            $table->float('length');
+            $table->float('width');
             $table->unsignedBigInteger('species_id');
             $table->foreign('species_id')->references('id')->on('species');
             $table->unsignedBigInteger('treatment_id');

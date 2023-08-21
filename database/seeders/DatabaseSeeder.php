@@ -2,7 +2,9 @@
 
 namespace Database\Seeders;
 
+use Illuminate\Support\Facades\DB;
 use Illuminate\Database\Seeder;
+use Carbon\Carbon;
 
 class DatabaseSeeder extends Seeder
 {
@@ -13,6 +15,10 @@ class DatabaseSeeder extends Seeder
     {
         $this->call([
             DryingMethodSeeder::class,
+            SpeciesSeeder::class,
+            TreatmentSeeder::class,
+            GradingSystemSeeder::class,
+            GradeSeeder::class
         ]);
     }
 }

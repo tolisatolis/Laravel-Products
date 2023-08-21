@@ -6,26 +6,21 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Database\Seeder;
 use Carbon\Carbon;
 
-class DryingMethodSeeder extends Seeder
+class GradingSystemSeeder extends Seeder
 {
     /**
      * Run the database seeds.
-     * Fresh, Kiln Dried, Air Dried
      */
     public function run(): void
     {
-        DB::table('drying_method')->insert(
+        DB::table('grading_system')->insert(
             [
                 [
-                    'name' => 'Fresh',
+                    'name' => 'Tegernseer',
                     'created_at' => Carbon::now()
                 ],
                 [
-                    'name' => 'Kiln Dried',
-                    'created_at' => Carbon::now()
-                ],
-                [
-                    'name' => 'Air Dried',
+                    'name' => 'Nordic Blue',
                     'created_at' => Carbon::now()
                 ]
             ]

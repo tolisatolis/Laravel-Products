@@ -6,26 +6,21 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Database\Seeder;
 use Carbon\Carbon;
 
-class DryingMethodSeeder extends Seeder
+class TreatmentSeeder extends Seeder
 {
     /**
      * Run the database seeds.
-     * Fresh, Kiln Dried, Air Dried
      */
     public function run(): void
     {
-        DB::table('drying_method')->insert(
+        DB::table('treatment')->insert(
             [
                 [
-                    'name' => 'Fresh',
+                    'name' => 'Heat Treated',
                     'created_at' => Carbon::now()
                 ],
                 [
-                    'name' => 'Kiln Dried',
-                    'created_at' => Carbon::now()
-                ],
-                [
-                    'name' => 'Air Dried',
+                    'name' => 'Anti-stain Treatment',
                     'created_at' => Carbon::now()
                 ]
             ]

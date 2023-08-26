@@ -8,4 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class DryingMethod extends Model
 {
     use HasFactory;
+    protected $fillable = [
+        'name'
+    ];
+    public $timestamps = true;
 }

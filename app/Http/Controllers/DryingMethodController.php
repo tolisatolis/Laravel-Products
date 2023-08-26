@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreDryingMethodRequest;
 use App\Http\Requests\UpdateDryingMethodRequest;
+use App\Services\DryingMethodService;
 use App\Models\DryingMethod;
 
 class DryingMethodController extends Controller
@@ -27,9 +28,10 @@ class DryingMethodController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreDryingMethodRequest $request)
+    public function store(StoreDryingMethodRequest $request, DryingMethodService $dryingMethodService)
     {
         //
+        $dryingMethod = $dryingMethodService->create($request);
     }
 
     /**

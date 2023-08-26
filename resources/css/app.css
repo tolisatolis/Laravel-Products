@@ -1,3 +1,23 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.mr-10{
+    margin-right: 10px;
+}
+.dflex-acenter{
+    display: flex;
+    align-items: center;
+}
+.nav-color{
+    background-color: #1fb782;
+}
+.container {
+  display: grid;
+  grid-template-columns: 250px 1fr;
+}
+aside {
+  min-height: 100vh;
+  justify-content: space-between;
+  flex-direction: column;
+}

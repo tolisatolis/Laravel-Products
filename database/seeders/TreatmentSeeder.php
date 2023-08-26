@@ -13,7 +13,7 @@ class TreatmentSeeder extends Seeder
      */
     public function run(): void
     {
-        DB::table('treatment')->insert(
+        DB::table('treatments')->insert(
             [
                 [
                     'name' => 'Heat Treated',

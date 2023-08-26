@@ -12,9 +12,12 @@ class DryingMethodController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(DryingMethodService $dryingMethodService)
     {
-        //
+        return view('item-list', [
+            'title' => 'Drying Methods',
+            'data' => $dryingMethodService->getAll()
+        ]);
     }
 
     /**
@@ -27,19 +30,22 @@ class DryingMethodController extends Controller
 
     /**
      * Store a newly created resource in storage.
-     */
-    public function store(StoreDryingMethodRequest $request, DryingMethodService $dryingMethodService)
+     */ public function store(StoreDryingMethodRequest $request, DryingMethodService $dryingMethodService)
     {
         //
         $dryingMethod = $dryingMethodService->create($request);
     }
 
+
     /**
      * Display the specified resource.
      */
-    public function show(DryingMethod $dryingMethod)
+    public function show($id, DryingMethodService $dryingMethodService)
     {
-        //
+        return view('item-list', [
+            'title' => 'Drying Methods',
+            'data' => $dryingMethodService->get($id)
+        ]);
     }
 
     /**

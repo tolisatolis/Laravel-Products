@@ -2,21 +2,14 @@
 
 use Illuminate\Support\Facades\Route;
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider and all of them will
-| be assigned to the "web" middleware group. Make something great!
-|
-*/
 Route::get('/', function () {
     return view('welcome');
 });
-Route::get('/home', function () {
-    return view('home');
-});
-
-
+Route::get('/drying-methods', 'DryingMethodController@index');
+// Route::get('/drying-methods/{id}', 'DryingMethodController@show')->where(array('id' => '[0-9]'));
+Route::get('/marketplace', 'DryingMethodController@index');
+Route::get('/marketplace/{id}', 'DryingMethodController@show')->where(array('id' => '[0-9]'));
+Route::get('/treatments', 'DryingMethodController@index');
+Route::get('/species', 'DryingMethodController@index');
+Route::get('/grading-systems', 'DryingMethodController@index');
+Route::get('/grades', 'DryingMethodController@index');

@@ -13,7 +13,7 @@ class GradingSystemSeeder extends Seeder
      */
     public function run(): void
     {
-        DB::table('grading_system')->insert(
+        DB::table('grading_systems')->insert(
             [
                 [
                     'name' => 'Tegernseer',

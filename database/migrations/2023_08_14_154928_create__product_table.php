@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('product', function (Blueprint $table) {
+        Schema::create('products', function (Blueprint $table) {
             $table->id();
             $table->float('thickness');
             $table->float('length');
@@ -19,13 +19,13 @@ return new class extends Migration
             $table->unsignedBigInteger('species_id');
             $table->foreign('species_id')->references('id')->on('species');
             $table->unsignedBigInteger('treatment_id');
-            $table->foreign('treatment_id')->references('id')->on('treatment')->nullable();
+            $table->foreign('treatment_id')->references('id')->on('treatments')->nullable();
             $table->unsignedBigInteger('drying_method_id');
-            $table->foreign('drying_method_id')->references('id')->on('drying_method');
+            $table->foreign('drying_method_id')->references('id')->on('drying_methods');
             $table->unsignedBigInteger('grade_id');
-            $table->foreign('grade_id')->references('id')->on('grade');
+            $table->foreign('grade_id')->references('id')->on('grades');
             $table->unsignedBigInteger('grading_system_id');
-            $table->foreign('grading_system_id')->references('id')->on('grading_system');
+            $table->foreign('grading_system_id')->references('id')->on('grading_systems');
             $table->timestamps();
         });
     }
@@ -35,6 +35,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('product');
+        Schema::dropIfExists('products');
     }
 };

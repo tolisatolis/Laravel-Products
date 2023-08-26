@@ -14,7 +14,7 @@ class DryingMethodSeeder extends Seeder
      */
     public function run(): void
     {
-        DB::table('drying_method')->insert(
+        DB::table('drying_methods')->insert(
             [
                 [
                     'name' => 'Fresh',

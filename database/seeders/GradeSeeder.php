@@ -15,9 +15,9 @@ class GradeSeeder extends Seeder
     {
         //Nordic Blue: A1, A2, A3, A4, B
         // Tegernseer: O, I, II, III, IV, V??
-        $nordicBlueId = DB::table('grading_system')->where('name', '=', 'Nordic Blue')->value('id');
-        $tegernseerId = DB::table('grading_system')->where('name', '=', 'Tegernseer')->value('id');;
-        DB::table('grade')->insert(
+        $nordicBlueId = DB::table('grading_systems')->where('name', '=', 'Nordic Blue')->value('id');
+        $tegernseerId = DB::table('grading_systems')->where('name', '=', 'Tegernseer')->value('id');;
+        DB::table('grades')->insert(
             [
                 [
                     'name' => 'A1',

@@ -6,8 +6,6 @@ use App\Interfaces\IService;
 use App\Models\DryingMethod;
 use Illuminate\Http\Request;
 use Illuminate\Support\Collection;
-use Illuminate\Support\Facades\DB;
-use Faker\Core\Number;
 
 class DryingMethodService implements IService
 {

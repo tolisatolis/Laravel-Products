@@ -62,7 +62,7 @@
               </a>
             </li>
             <li>
-              <a href="dryig-methods" class="block p-2 hover:bg-gray-700 flex items-center">
+              <a href="drying-methods" class="block p-2 hover:bg-gray-700 flex items-center">
               <i class="fa-solid fa-leaf mr-2 text-xs"></i>
                 Drying methods
               </a>

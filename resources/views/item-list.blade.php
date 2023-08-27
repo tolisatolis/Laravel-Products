@@ -4,5 +4,5 @@
 
 @section('content')
     <p>{{$title}}</p>
-    {{$data}}
+    <x-grid :$data/>
 @stop

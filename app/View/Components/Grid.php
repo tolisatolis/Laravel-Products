@@ -5,17 +5,25 @@ namespace App\View\Components;
 use Closure;
 use Illuminate\Contracts\View\View;
 use Illuminate\View\Component;
-use Illuminate\Support\Collection;
+use Illuminate\Pagination\LengthAwarePaginator;
 
 class Grid extends Component
 {
     /**
      * Create a new component instance.
      */
-    public Collection $items;
-    public function __construct(public Collection $data)
+    public LengthAwarePaginator $items;
+    public array $columns;
+    public string $title;
+    public string $editRoute;
+    public string $deleteRoute;
+    public function __construct(LengthAwarePaginator $data, array $columns, string $title, string $editRoute, string $deleteRoute)
     {
         $this->items = $data;
+        $this->title = $title;
+        $this->editRoute = $editRoute;
+        $this->deleteRoute = $editRoute;
+        $this->columns = $columns;
     }
     /**
      * Get the view / contents that represent the component.

@@ -2,26 +2,22 @@
 
 namespace App\Services;
 
+use App\Http\Requests\FormRequestBase;
 use App\Interfaces\IService;
 use App\Models\DryingMethod;
 use Illuminate\Http\Request;
-use Illuminate\Support\Collection;
+use Illuminate\Pagination\LengthAwarePaginator;
 
 class DryingMethodService implements IService
 {
     public function create(Request $request): DryingMethod
     {
-        $dryingMethod = DryingMethod::create([
-            'name' => $request->name
-        ]);
-
-
+        $dryingMethod = DryingMethod::create($request->all());
         return $dryingMethod;
     }
-    public function getAll(): Collection
+    public function getAll(): LengthAwarePaginator
     {
-        $dryingMethods = DryingMethod::get();
-
+        $dryingMethods = DryingMethod::paginate(10);
         return $dryingMethods;
     }
 
@@ -31,14 +27,13 @@ class DryingMethodService implements IService
         return $dryingMethod;
     }
 
-    public function update(Request $request)
+    public function update($id, FormRequestBase $request)
     {
-        $dryingMethod = DryingMethod::find($request->id);
-        $dryingMethod->name = $request->name;
-        $dryingMethod->save();
+        $dryingMethod = DryingMethod::find($id)->update($request->all());
+        return $dryingMethod;
     }
     public function delete($id)
     {
-        $dryingMethod = DryingMethod::destroy($id);
+        DryingMethod::destroy($id);
     }
 }

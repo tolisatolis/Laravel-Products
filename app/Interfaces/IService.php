@@ -2,14 +2,13 @@
 
 namespace App\Interfaces;
 
-use Faker\Core\Number;
-use Illuminate\Http\Request;
+use App\Http\Requests\FormRequestBase;
 
 interface IService
 {
-    public function create(Request $request);
+    public function create(FormRequestBase $request);
     public function getAll();
     public function get($id);
-    public function update(Request $request);
+    public function update($id, FormRequestBase $request);
     public function delete($id);
 }

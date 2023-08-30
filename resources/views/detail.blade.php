@@ -15,7 +15,7 @@
                 @switch($input['inputType'])
                 
                 @case('dropdDown')
-                   {{--  <x-dropdown label="test" :data="$input['data']" :formControllName="$input['formControllName']" :existingRecordId="$data[$input['formControllName']]"/>  --}}
+                <x-dropdown label="test" :data="$input['data']" :formControllName="$input['formControllName']" :existingRecordId="$data[$input['formControllName']]"/> 
                     @break
                 @default
                     <div class="mb-6">  

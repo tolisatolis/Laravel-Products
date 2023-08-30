@@ -22,7 +22,7 @@ class Grid extends Component
         $this->items = $data;
         $this->title = $title;
         $this->editRoute = $editRoute;
-        $this->deleteRoute = $editRoute;
+        $this->deleteRoute = $deleteRoute;
         $this->columns = $columns;
     }
     /**

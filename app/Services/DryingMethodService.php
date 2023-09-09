@@ -3,12 +3,12 @@
 namespace App\Services;
 
 use App\Http\Requests\FormRequestBase;
-use App\Interfaces\IService;
+use App\Interfaces\IModelService;
 use App\Models\DryingMethod;
 use Illuminate\Http\Request;
 use Illuminate\Pagination\LengthAwarePaginator;
 
-class DryingMethodService implements IService
+class DryingMethodService implements IModelService
 {
     public function create(Request $request): DryingMethod
     {

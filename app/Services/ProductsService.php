@@ -2,15 +2,14 @@
 
 namespace App\Services;
 
-use App\Http\Requests\FormRequestBase;
-use App\Interfaces\IService;
+use App\Interfaces\IModelService;
 use App\Models\Product;
-use Illuminate\Http\Request;
+use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Pagination\LengthAwarePaginator;
 
-class ProductsService implements IService
+class ProductsService implements IModelService
 {
-    public function create(Request $request): Product
+    public function create(FormRequest $request): Product
     {
         $product = Product::create($request->all());
         return $product;
@@ -27,7 +26,7 @@ class ProductsService implements IService
         return $product;
     }
 
-    public function update($id, FormRequestBase $request)
+    public function update($id, FormRequest $request)
     {
         $product = Product::find($id)->update($request->all());
         return $product;

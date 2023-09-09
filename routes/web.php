@@ -16,13 +16,13 @@ Route::get('/drying-methods/delete/{id}', 'DryingMethodController@destroy')->nam
 Route::get('/drying-methods/{id}', 'DryingMethodController@show')->name('getDryingMethod');
 
 //Products
-// Route::get('/marketplace', 'DryingMethodController@index')->name('getProducts');
-// Route::get('/marketplace/create', 'DryingMethodController@create')->name('createDryingMethod');
-// Route::post('/marketplace/store', 'DryingMethodController@store')->name('storeDryingMethod');
-// Route::get('/marketplace/{id}/edit', 'DryingMethodController@edit')->name('editDryingMethod');
-// Route::post('/marketplace/{id}/update', 'DryingMethodController@update')->name('updateDryingMethod');
-// Route::get('/marketplace/delete/{id}', 'DryingMethodController@destroy')->name('deleteDryingMethod');
-// Route::get('/marketplace/{id}', 'DryingMethodController@show')->name('getDryingMethod');
+Route::get('/marketplace', 'ProductsController@index')->name('getProducts');
+Route::get('/marketplace/create', 'ProductsController@create')->name('createProduct');
+Route::post('/marketplace/store', 'ProductsController@store')->name('storeProduct');
+Route::get('/marketplace/{id}/edit', 'ProductsController@edit')->name('editProduct');
+Route::post('/marketplace/{id}/update', 'ProductsController@update')->name('updateProduct');
+Route::get('/marketplace/delete/{id}', 'ProductsController@destroy')->name('deleteProduct');
+Route::get('/marketplace/{id}', 'ProductsController@show')->name('getProduct');
 //Treatments
 Route::get('/treatments', 'TreatmentController@index')->name('getTreatments');
 Route::get('/treatments/create', 'TreatmentController@create')->name('createTreatment');
@@ -47,11 +47,12 @@ Route::get('/grading-systems/{id}/edit', 'GradingSystemController@edit')->name('
 Route::post('/grading-systems/{id}/update', 'GradingSystemController@update')->name('updateGradingSystems');
 Route::get('/grading-systems/delete/{id}', 'GradingSystemController@destroy')->name('deleteGradingSystems');
 Route::get('/grading-systems/{id}', 'GradingSystemController@show')->name('getGradingSystems');
-//Grafes
+//Grades
 Route::get('/grades', 'GradeController@index')->name('getGrades');
 Route::get('/grades/create', 'GradeController@create')->name('createGrades');
 Route::post('/grades/store', 'GradeController@store')->name('storeGrades');
 Route::get('/grades/{id}/edit', 'GradeController@edit')->name('editGrades');
 Route::post('/grades/{id}/update', 'GradeController@update')->name('updateGrades');
 Route::get('/grades/delete/{id}', 'GradeController@destroy')->name('deleteGrades');
-Route::get('/grades/{id}', 'GradeController@show')->name('getGrades');
+Route::get('/grades/{id}', 'GradeController@show')->name('getGrade');
+Route::get('/grades-by-system', 'GradeController@byGradingSystem')->name('getGradesbyGradingSystem');

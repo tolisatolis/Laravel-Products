@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\FormRequestBase;
+use App\Http\Requests\StoreGradeRequest;
+use App\Http\Requests\UpdateGradeRequest;
 use App\Services\GradeService;
 use App\Services\GradeViewConfigurationService;
+use Illuminate\Http\Request;
 
 class GradeController extends Controller
 {
@@ -19,7 +21,7 @@ class GradeController extends Controller
             'data' => $gradeService->getAll(),
             'editRoute' => 'editGrades',
             'deleteRoute' => 'deleteGrades',
-            'columns' => ['id', 'name', 'grading_system_id']
+            'columns' => ['id', 'name', 'grading_system']
         ]);
     }
 
@@ -40,10 +42,10 @@ class GradeController extends Controller
 
     /**
      * Store a newly created resource in storage.
-     */ public function store(FormRequestBase $request, GradeService $gradeService)
+     */ public function store(StoreGradeRequest $request, GradeService $gradeService)
     {
         $treatment =  $gradeService->create($request);
-        return redirect('/grades/' . $treatment->id);
+        return redirect('/grades');
     }
 
 
@@ -80,10 +82,10 @@ class GradeController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update($id, FormRequestBase $request, GradeService $gradeService)
+    public function update($id, UpdateGradeRequest $request, GradeService $gradeService)
     {
         $gradeService->update($id, $request);
-        return redirect('/grades/' . $id);
+        return redirect('/grades');
     }
 
     /**
@@ -93,5 +95,17 @@ class GradeController extends Controller
     {
         $gradeService->delete($id);
         return back('/grades');
+    }
+    /**
+     * Display a filtered listing of the resource.
+     */
+    public function byGradingSystem(Request $request, GradeService $gradeService)
+    {
+
+        $grades =  $gradeService->getGradesByGradingSystem($request->grading_system_id);
+
+        if (count($grades) > 0) {
+            return response()->json($grades);
+        }
     }
 }

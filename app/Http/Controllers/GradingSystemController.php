@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\FormRequestBase;
+use App\Http\Requests\StoreDryingMethodRequest;
+use App\Http\Requests\StoreGradingSystemRequest;
+use App\Http\Requests\UpdateGradingSystemRequest;
 use App\Services\GradingSystemService;
 use App\Services\GradingSystemViewConfigurationService;
 
@@ -40,10 +43,10 @@ class GradingSystemController extends Controller
 
     /**
      * Store a newly created resource in storage.
-     */ public function store(FormRequestBase $request, GradingSystemService $gradingSystemService)
+     */ public function store(StoreGradingSystemRequest $request, GradingSystemService $gradingSystemService)
     {
         $treatment =  $gradingSystemService->create($request);
-        return redirect('/grading-systems/' . $treatment->id);
+        return redirect('/grading-systems');
     }
 
 
@@ -80,10 +83,10 @@ class GradingSystemController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update($id, FormRequestBase $request, GradingSystemService $gradingSystemService)
+    public function update($id, UpdateGradingSystemRequest $request, GradingSystemService $gradingSystemService)
     {
         $gradingSystemService->update($id, $request);
-        return redirect('/grading-systems/' . $id);
+        return redirect('/grading-systems');
     }
 
     /**

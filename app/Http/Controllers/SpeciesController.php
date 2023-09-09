@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\FormRequestBase;
+use App\Http\Requests\StoreSpeciesRequest;
+use App\Http\Requests\UpdateSpeciesRequest;
 use App\Services\SpeciesViewConfigurationService;
 use App\Services\SpeciesService;
 
@@ -40,10 +42,10 @@ class SpeciesController extends Controller
 
     /**
      * Store a newly created resource in storage.
-     */ public function store(FormRequestBase $request, SpeciesService $speciesService)
+     */ public function store(StoreSpeciesRequest $request, SpeciesService $speciesService)
     {
         $treatment =  $speciesService->create($request);
-        return redirect('/species/' . $treatment->id);
+        return redirect('/species');
     }
 
 
@@ -80,10 +82,10 @@ class SpeciesController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update($id, FormRequestBase $request, SpeciesService $speciesService)
+    public function update($id, UpdateSpeciesRequest $request, SpeciesService $speciesService)
     {
         $speciesService->update($id, $request);
-        return redirect('/species/' . $id);
+        return redirect('/species');
     }
 
     /**

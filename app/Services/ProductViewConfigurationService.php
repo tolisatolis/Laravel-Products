@@ -34,21 +34,21 @@ class ProductViewConfigurationService
                     'disabled' => true
                 ),
                 array(
-                    'inputType' => 'thickness',
-                    'label' => 'Name',
-                    'formControllName' => 'name',
+                    'inputType' => 'number',
+                    'label' => 'thickness',
+                    'formControllName' => 'thickness',
                     'disabled' => false
                 ),
                 array(
-                    'inputType' => 'length',
-                    'label' => 'Name',
-                    'formControllName' => 'name',
+                    'inputType' => 'number',
+                    'label' => 'length',
+                    'formControllName' => 'length',
                     'disabled' => false
                 ),
                 array(
-                    'inputType' => 'width',
-                    'label' => 'Name',
-                    'formControllName' => 'name',
+                    'inputType' => 'number',
+                    'label' => 'width',
+                    'formControllName' => 'width',
                     'disabled' => false
                 ),
                 array(
@@ -73,18 +73,14 @@ class ProductViewConfigurationService
                     'data' => $this->dryingMethodsService->getAll()
                 ),
                 array(
-                    'inputType' => 'dropdDown',
+                    'inputType' => 'dependentDropdDown',
                     'label' => 'Grading System',
+                    'childLabel' => 'Grade',
                     'formControllName' => 'grading_system_id',
                     'disabled' => false,
-                    'data' => $this->gradingSystemsService->getAll()
-                ),
-                array(
-                    'inputType' => 'dropdDown',
-                    'label' => 'Grade',
-                    'formControllName' => 'grade_id',
-                    'disabled' => false,
-                    'data' => $this->gradesService->getAll()
+                    'data' => $this->gradingSystemsService->getAll(),
+                    'childUrl' => 'getGradesbyGradingSystem',
+                    'childControllName' => 'grade_id',
                 ),
             );
         return $inputConfiguration;

@@ -9,6 +9,7 @@
                     {{$col}}
                 </th>
                @endforeach
+
                <th scope="col" class="px-6 py-3">
                     Actions
                 </th>
@@ -20,10 +21,19 @@
             @foreach ($items as $item)
             <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
                  @foreach ($columns as $col)
-                <th scope="col" class="px-6 py-3">
-                    {{$item->$col}}
-                </th>
-               @endforeach
+                    <th scope="col" class="px-6 py-3">
+
+                        @if($col == 'id')
+                           <a href="{{$item->id}}"> 
+                             {{isset($item->$col['name']) ? $item->$col['name']: $item[$col] }}
+                            </a>
+                        @else
+
+                        {{isset($item->$col['name']) ? $item->$col['name']: $item[$col] }}
+                        @endif
+                    </th>
+                @endforeach
+                
                 <td class="px-6 py-4 text-right">
                 <a href="{{ route($editRoute,[$item->id])}}" class="font-medium text-blue-600 dark:text-blue-500 hover:underline"><i class="fa-solid fa-pencil mr-2"></i></a>
                     <span class="ml-2"> 

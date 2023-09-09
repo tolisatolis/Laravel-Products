@@ -11,7 +11,7 @@ class UpdateProductsRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -21,8 +21,16 @@ class UpdateProductsRequest extends FormRequest
      */
     public function rules(): array
     {
-        return [
-            //
-        ];
+        return
+            [
+                'grading_system_id' => 'required',
+                'grade_id' => 'required',
+                'drying_method_id' => 'required',
+                'species_id' => 'required',
+                'treatment_id' => 'required',
+                'thickness' => 'required|numeric|min:1',
+                'width' => 'required|numeric|min:1',
+                'length' => 'required|numeric|min:1',
+            ];
     }
 }

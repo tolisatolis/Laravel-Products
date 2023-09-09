@@ -42,10 +42,10 @@ class TreatmentController extends Controller
 
     /**
      * Store a newly created resource in storage.
-     */ public function store(FormRequestBase $request, TreatmentService $treatmentService)
+     */ public function store(StoreTreatmentRequest $request, TreatmentService $treatmentService)
     {
         $treatment =  $treatmentService->create($request);
-        return redirect('/treatments/' . $treatment->id);
+        return redirect('/treatments');
     }
 
 
@@ -82,10 +82,10 @@ class TreatmentController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update($id, FormRequestBase $request, TreatmentService $treatmentService)
+    public function update($id, UpdateTreatmentRequest $request, TreatmentService $treatmentService)
     {
         $treatmentService->update($id, $request);
-        return redirect('/treatments/' . $id);
+        return redirect('/treatments');
     }
 
     /**

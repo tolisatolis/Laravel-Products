@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\FormRequestBase;
+use App\Http\Requests\StoreDryingMethodRequest;
+use App\Http\Requests\UpdateDryingMethodRequest;
 use App\Services\DryingMethodService;
 use App\Services\DryingMethodViewConfigurationService;
 
@@ -40,10 +42,10 @@ class DryingMethodController extends Controller
 
     /**
      * Store a newly created resource in storage.
-     */ public function store(FormRequestBase $request, DryingMethodService $dryingMethodService)
+     */ public function store(StoreDryingMethodRequest $request, DryingMethodService $dryingMethodService)
     {
         $dryingMethod =  $dryingMethodService->create($request);
-        return redirect('/drying-methods/' . $dryingMethod->id);
+        return redirect('/drying-methods');
     }
 
 
@@ -80,10 +82,10 @@ class DryingMethodController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update($id, FormRequestBase $request, DryingMethodService $dryingMethodService)
+    public function update($id, UpdateDryingMethodRequest $request, DryingMethodService $dryingMethodService)
     {
         $dryingMethodService->update($id, $request);
-        return redirect('/drying-methods/' . $id);
+        return redirect('/drying-methods');
     }
 
     /**

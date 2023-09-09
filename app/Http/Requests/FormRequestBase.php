@@ -3,6 +3,8 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Http\Exceptions\HttpResponseException;
+use Illuminate\Contracts\Validation\Validator;
 
 class FormRequestBase extends FormRequest
 {
@@ -24,5 +26,10 @@ class FormRequestBase extends FormRequest
         return [
             'name' => 'required|string|max:200',
         ];
+    }
+    public function failedValidation(Validator $validator)
+    {
+        //write your bussiness logic here otherwise it will give same old JSON response
+        throw new HttpResponseException(response()->json($validator->errors(), 422));
     }
 }

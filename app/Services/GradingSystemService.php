@@ -3,12 +3,12 @@
 namespace App\Services;
 
 use App\Http\Requests\FormRequestBase;
-use App\Interfaces\IService;
+use App\Interfaces\IModelService;
 use App\Models\GradingSystem;
 use Illuminate\Http\Request;
 use Illuminate\Pagination\LengthAwarePaginator;
 
-class GradingSystemService implements IService
+class GradingSystemService implements IModelService
 {
     public function create(Request $request): GradingSystem
     {

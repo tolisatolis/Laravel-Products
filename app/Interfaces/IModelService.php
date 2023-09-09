@@ -4,7 +4,7 @@ namespace App\Interfaces;
 
 use App\Http\Requests\FormRequestBase;
 
-interface IService
+interface IModelService
 {
     public function create(FormRequestBase $request);
     public function getAll();

@@ -3,12 +3,12 @@
 namespace App\Services;
 
 use App\Http\Requests\FormRequestBase;
-use App\Interfaces\IService;
+use App\Interfaces\IModelService;
 use App\Models\Treatment;
 use Illuminate\Http\Request;
 use Illuminate\Pagination\LengthAwarePaginator;
 
-class TreatmentService implements IService
+class TreatmentService implements IModelService
 {
     public function create(Request $request): Treatment
     {

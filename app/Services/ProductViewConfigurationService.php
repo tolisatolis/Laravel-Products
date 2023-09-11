@@ -35,19 +35,19 @@ class ProductViewConfigurationService
                 ),
                 array(
                     'inputType' => 'number',
-                    'label' => 'thickness',
+                    'label' => 'Thickness',
                     'formControllName' => 'thickness',
                     'disabled' => false
                 ),
                 array(
                     'inputType' => 'number',
-                    'label' => 'length',
+                    'label' => 'Length',
                     'formControllName' => 'length',
                     'disabled' => false
                 ),
                 array(
                     'inputType' => 'number',
-                    'label' => 'width',
+                    'label' => 'Width',
                     'formControllName' => 'width',
                     'disabled' => false
                 ),
@@ -66,15 +66,8 @@ class ProductViewConfigurationService
                     'data' => $this->treatmentsService->getAll()
                 ),
                 array(
-                    'inputType' => 'dropdDown',
-                    'label' => 'Drying Method',
-                    'formControllName' => 'drying_method_id',
-                    'disabled' => false,
-                    'data' => $this->dryingMethodsService->getAll()
-                ),
-                array(
                     'inputType' => 'dependentDropdDown',
-                    'label' => 'Grading System',
+                    'label' => 'Grade',
                     'childLabel' => 'Grade',
                     'formControllName' => 'grading_system_id',
                     'disabled' => false,
@@ -82,6 +75,14 @@ class ProductViewConfigurationService
                     'childUrl' => 'getGradesbyGradingSystem',
                     'childControllName' => 'grade_id',
                 ),
+                array(
+                    'inputType' => 'dropdDown',
+                    'label' => 'Drying Method',
+                    'formControllName' => 'drying_method_id',
+                    'disabled' => false,
+                    'data' => $this->dryingMethodsService->getAll()
+                ),
+
             );
         return $inputConfiguration;
     }

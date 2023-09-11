@@ -21,6 +21,8 @@ class DryingMethodController extends Controller
             'data' => $dryingMethodService->getAll(),
             'editRoute' => 'editDryingMethod',
             'deleteRoute' => 'deleteDryingMethod',
+            'detailRoute' => 'getDryingMethod',
+            'labels' => ['ID', 'Name'],
             'columns' => ['id', 'name']
         ]);
     }

@@ -21,6 +21,8 @@ class SpeciesController extends Controller
             'data' => $speciesService->getAll(),
             'editRoute' => 'editSpecies',
             'deleteRoute' => 'deleteSpecies',
+            'detailRoute' => 'getSpecies',
+            'labels' => ['ID', 'Name'],
             'columns' => ['id', 'name']
         ]);
     }

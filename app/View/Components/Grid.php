@@ -17,13 +17,17 @@ class Grid extends Component
     public string $title;
     public string $editRoute;
     public string $deleteRoute;
-    public function __construct(LengthAwarePaginator $data, array $columns, string $title, string $editRoute, string $deleteRoute)
+    public string $detailRoute;
+    public array $labels;
+    public function __construct(LengthAwarePaginator $data, array $columns, string $title, string $editRoute, string $deleteRoute, array $labels, string $detailRoute)
     {
         $this->items = $data;
         $this->title = $title;
         $this->editRoute = $editRoute;
         $this->deleteRoute = $deleteRoute;
+        $this->labels = $labels;
         $this->columns = $columns;
+        $this->detailRoute = $detailRoute;
     }
     /**
      * Get the view / contents that represent the component.

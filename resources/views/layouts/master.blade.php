@@ -13,7 +13,7 @@
         <title>TOLISHub - @yield('title')</title>
         
     </head>
-<body class="bg-gray-100">
+<body class="bg-gray-200">
 
   <!--Main Nav -->
     <nav class="nav-color p-4 flex items-center justify-between">
@@ -27,7 +27,7 @@
     </h1>
     </div>
   </nav>
-<div class="container">
+<div class="container max-w-full">
   <!--Menu -->
   <aside class="bg-gray-800 text-white w-64 min-h-screen p-4">
     <nav>
@@ -95,10 +95,16 @@
     </nav>
   </aside>
   <!-- Main Content -->
-  <main class="container mx-auto p-4">
-    @yield('content')
+  <div class="h-screen flex items-start justify-center w-full">
+  <main class="container flex  w-full">
+      @yield('content')
   </main>
+  </div>
 </div>
+
+</body>
+</html>
+
   <script>
     document.addEventListener("DOMContentLoaded", function () {
       const opcionesConDesplegable = document.querySelectorAll(".opcion-con-desplegable");
@@ -112,5 +118,3 @@
       });
     });
   </script>
-</body>
-</html>

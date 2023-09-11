@@ -21,6 +21,8 @@ class TreatmentController extends Controller
             'data' => $treatmentService->getAll(),
             'editRoute' => 'editTreatment',
             'deleteRoute' => 'deleteTreatment',
+            'detailRoute' => 'getTreatment',
+            'labels' => ['ID', 'Name'],
             'columns' => ['id', 'name']
         ]);
     }

@@ -3,12 +3,20 @@
 @section('title',$title)
 
 @section('content')
-<div>
-   <h2> {{$title}}>{{isset($data->name) ? $data->name : 'New' }}</h2>
+<div class="p-4 w-full ">
+   <div  class="flex justify-between items-center"> 
+    <span class="text-xl"> {{$title}} > {{isset($data) ? $data->id : 'New' }}</span>
+    @if(!$editing)
+        <x-button text="Edit" icon="pencil" url="{{url()->current();}}/edit"/>
+    @else
+        <x-button text="Cancel" icon="rotate-left" url="{{url()->previous();}}"/>
+    @endif
+    
+    </div>
    <form name="{{$type}}-form" id="{{$type}}-form" method="post" action="{{$type}}">
        @csrf
        @method('POST')
-        <div class="form-group">
+        <div class="form-group grid grid-cols-2">
             @foreach ($inputs as $input)
                 @switch($input['inputType'])
 
@@ -26,12 +34,14 @@
                     @break
 
                 @case('dropdDown')
+                <div class="mb-6 mx-4"> 
                         <x-dropdown :label="$input['label']" :data="$input['data']" :formControllName="$input['formControllName']" 
                         :existingRecordId="isset($data[$input['formControllName']]) ? $data[$input['formControllName']] : 0 " /> 
+                        </div>
                     @break
                 @default
-                    <div class="mb-6"> 
-                        <label for="{{$input['formControllName']}}" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">{{$input['label']}}</label>
+                    <div class="mb-6 mx-4"> 
+                        <label for="{{$input['formControllName']}}" class="block mb-2 text-sm font-medium text-gray-900">{{$input['label']}}</label>
                         <input type="{{$input['inputType']}}" id="{{$input['formControllName']}}"  name="{{$input['formControllName']}}" class="bg-gray-50 form-control border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="{{$input['label']}}" value="{{isset($data[$input['formControllName']]) ? $data[$input['formControllName']] : '' }}"  required {{$input['disabled'] || !$editing ? 'disabled' : ''}}>
                     </div>
                 @endswitch

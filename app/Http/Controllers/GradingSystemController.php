@@ -22,6 +22,8 @@ class GradingSystemController extends Controller
             'data' => $gradingSystemService->getAll(),
             'editRoute' => 'editGradingSystems',
             'deleteRoute' => 'deleteGradingSystems',
+            'detailRoute' => 'getGradingSystems',
+            'labels' => ['ID', 'Name'],
             'columns' => ['id', 'name']
         ]);
     }

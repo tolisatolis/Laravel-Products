@@ -33,7 +33,7 @@ class Product extends Model
     {
         return $this->belongsTo(Grade::class);
     }
-    public function dryingMethod(): BelongsTo
+    public function drying_method(): BelongsTo
     {
         return $this->belongsTo(DryingMethod::class);
     }

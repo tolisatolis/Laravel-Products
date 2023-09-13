@@ -91,6 +91,8 @@ Grades table just has a foreign key to Grading systems to implement the fact tha
 this also allows us to filter /sort by grade.
 
 Finally to start the application 
+
+
 Go to .env and add values to these 
  DB_CONNECTION=
  DB_HOST=
@@ -99,19 +101,29 @@ Go to .env and add values to these
  DB_USERNAME=
  DB_PASSWORD=
  to connect to your server 
+
+
 Run php artisan migrate to Create a DB with name DB_DATABASE 
 
 Run php artisan db:seed to populate admin tables with daata
 
-Run php artisan serve to start the development server 
+Run php artisan serve to start the development server
+
+
 
 Split terminal and run npm run dev for Tailwind
+
 
 Soft deleted is not implemented because 
 there is no such feeling as deleting production data
 
 If you read this README file
+
 here is a Quote 
+
+
 A person who never made a mistake never tried anything new.  Albert Einstein
+
+
 Thanks ❤️ 
 Apostolis 

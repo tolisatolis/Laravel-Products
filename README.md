@@ -55,9 +55,8 @@ to build an API to transfer json data.
 Now for the database design i will explain the deccesions behind the product and grades
 The other tables are just dummy tables with name/id/auditlogs : 
 Product Columns 
-+-------------------+
 | Field             |
-+-------------------|
+|-------------------|
 | id                |
 | thickness         |
 | length            |
@@ -69,7 +68,6 @@ Product Columns
 | grading_system_id |
 | created_at        |
 | updated_at        |
-+-------------------+
 
 I chose to have 3 columns for dimensions to have a better controll over the data and its manipulation. 
 Different datafields also meant that i could display them in any way i want(111X222X333 or 111 222 333) and even transform them easier in different units of measure.
@@ -79,15 +77,15 @@ species_id,treatment_id,drying_method_id are just FK to the admin tables
  and i just validate the fact that a product has a grading matching the correct grade system in a Custom rule in the form request
 
 Grades is table 
-+-------------------+
+
+
 | Field             |
-+-------------------+
+|-------------------|
 | id                |
 | name              |
 | grading_system_id |
 | created_at        |
 | updated_at        |
-+-------------------+
 
 Grades table just has a foreign key to Grading systems to implement the fact that a grade System has many grades 
 this also allows us to filter /sort by grade.

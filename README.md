@@ -92,16 +92,19 @@ this also allows us to filter /sort by grade.
 
 Finally to start the application 
 Go to .env and add values to these 
-DB_CONNECTION=
-DB_HOST=
-DB_PORT=
-DB_DATABASE=
-DB_USERNAME=
-DB_PASSWORD=
-to connect to your server 
+ DB_CONNECTION=
+ DB_HOST=
+ DB_PORT=
+ DB_DATABASE=
+ DB_USERNAME=
+ DB_PASSWORD=
+ to connect to your server 
 Run php artisan migrate to Create a DB with name DB_DATABASE 
+
 Run php artisan db:seed to populate admin tables with daata
+
 Run php artisan serve to start the development server 
+
 Split terminal and run npm run dev for Tailwind
 
 Soft deleted is not implemented because 

@@ -55,21 +55,21 @@ to build an API to transfer json data.
 Now for the database design i will explain the deccesions behind the product and grades
 The other tables are just dummy tables with name/id/auditlogs : 
 Product Columns 
-+-------------------+-----------------+------+-----+---------+----------------+
-| Field             | Type            | Null | Key | Default | Extra          |
-+-------------------+-----------------+------+-----+---------+----------------+
-| id                | bigint unsigned | NO   | PRI | NULL    | auto_increment |
-| thickness         | double(8,2)     | NO   |     | NULL    |                |
-| length            | double(8,2)     | NO   |     | NULL    |                |
-| width             | double(8,2)     | NO   |     | NULL    |                |
-| species_id        | bigint unsigned | NO   | MUL | NULL    |                |
-| treatment_id      | bigint unsigned | YES  | MUL | NULL    |                |
-| drying_method_id  | bigint unsigned | NO   | MUL | NULL    |                |
-| grade_id          | bigint unsigned | NO   | MUL | NULL    |                |
-| grading_system_id | bigint unsigned | NO   | MUL | NULL    |                |
-| created_at        | timestamp       | YES  |     | NULL    |                |
-| updated_at        | timestamp       | YES  |     | NULL    |                |
-+-------------------+-----------------+------+-----+---------+----------------+
++-------------------+
+| Field             |
++-------------------|
+| id                |
+| thickness         |
+| length            |
+| width             |
+| species_id        |
+| treatment_id      |
+| drying_method_id  |
+| grade_id          |
+| grading_system_id |
+| created_at        |
+| updated_at        |
++-------------------+
 
 I chose to have 3 columns for dimensions to have a better controll over the data and its manipulation. 
 Different datafields also meant that i could display them in any way i want(111X222X333 or 111 222 333) and even transform them easier in different units of measure.
@@ -79,15 +79,15 @@ species_id,treatment_id,drying_method_id are just FK to the admin tables
  and i just validate the fact that a product has a grading matching the correct grade system in a Custom rule in the form request
 
 Grades is table 
-+-------------------+-----------------+------+-----+---------+----------------+
-| Field             | Type            | Null | Key | Default | Extra          |
-+-------------------+-----------------+------+-----+---------+----------------+
-| id                | bigint unsigned | NO   | PRI | NULL    | auto_increment |
-| name              | varchar(10)     | NO   | UNI | NULL    |                |
-| grading_system_id | bigint unsigned | NO   | MUL | NULL    |                |
-| created_at        | timestamp       | YES  |     | NULL    |                |
-| updated_at        | timestamp       | YES  |     | NULL    |                |
-+-------------------+-----------------+------+-----+---------+----------------+
++-------------------+
+| Field             |
++-------------------+
+| id                |
+| name              |
+| grading_system_id |
+| created_at        |
+| updated_at        |
++-------------------+
 
 Grades table just has a foreign key to Grading systems to implement the fact that a grade System has many grades 
 this also allows us to filter /sort by grade.

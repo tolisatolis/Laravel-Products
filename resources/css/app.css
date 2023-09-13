@@ -25,3 +25,7 @@ aside {
   justify-content: space-between;
   flex-direction: column;
 }
+
+select:disabled{
+    opacity: 1!important;
+}

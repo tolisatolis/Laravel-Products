@@ -28,7 +28,6 @@ class StoreProductsRequest extends FormRequest
                 'grade_id' => ['required', 'exists:grades,id', new GradeRule($this->grading_system_id)],
                 'drying_method_id' => 'required|exists:drying_methods,id',
                 'species_id' => 'required|exists:species,id',
-                'treatment_id' => 'required|exists:treatments,id',
                 'thickness' => 'required|numeric|min:1',
                 'width' => 'required|numeric|min:1',
                 'length' => 'required|numeric|min:1',

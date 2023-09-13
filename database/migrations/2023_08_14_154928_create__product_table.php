@@ -18,7 +18,7 @@ return new class extends Migration
             $table->float('width');
             $table->unsignedBigInteger('species_id');
             $table->foreign('species_id')->references('id')->on('species');
-            $table->unsignedBigInteger('treatment_id');
+            $table->unsignedBigInteger('treatment_id')->nullable();
             $table->foreign('treatment_id')->references('id')->on('treatments')->nullable();
             $table->unsignedBigInteger('drying_method_id');
             $table->foreign('drying_method_id')->references('id')->on('drying_methods');

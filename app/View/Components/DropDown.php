@@ -15,13 +15,15 @@ class DropDown extends Component
     public LengthAwarePaginator $items;
     public string $label;
     public string $formControllName;
+    public bool $disabled;
     public int $existingRecordId;
-    public function __construct(LengthAwarePaginator $data, string $label, string $formControllName, int $existingRecordId)
+    public function __construct(LengthAwarePaginator $data, string $label, string $formControllName, int $existingRecordId, bool $disabled)
     {
         $this->items = $data;
         $this->label = $label;
         $this->formControllName = $formControllName;
         $this->existingRecordId = $existingRecordId;
+        $this->disabled = $disabled;
     }
 
     /**

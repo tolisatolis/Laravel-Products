@@ -23,8 +23,8 @@ class ProductsController extends Controller
             'editRoute' => 'editProduct',
             'deleteRoute' => 'deleteProduct',
             'detailRoute' => 'getProduct',
-            'columns' => ['id', 'species', 'thickness', 'width', 'length', 'grading_system', 'grade', 'drying_method', 'treatment'],
-            'labels' => ['ID', 'Species', 'Thickness', 'Width', 'Length', 'Grading System', 'Grade', 'Drying Method', 'Treatment']
+            'columns' => ['id',  'thickness', 'width', 'length', 'species', 'grading_system', 'grade', 'drying_method', 'treatment'],
+            'labels' => ['ID',  'Thickness', 'Width', 'Length', 'Species', 'Grading System', 'Grade', 'Drying Method', 'Treatment']
         ]);
     }
 

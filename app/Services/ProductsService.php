@@ -11,7 +11,8 @@ class ProductsService implements IModelService
 {
     public function create(FormRequest $request): Product
     {
-        $product = Product::create($request->all());
+        $filtered =  array_filter($request->all());
+        $product = Product::create($filtered);
         return $product;
     }
     public function getAll(): LengthAwarePaginator
@@ -28,7 +29,8 @@ class ProductsService implements IModelService
 
     public function update($id, FormRequest $request)
     {
-        $product = Product::find($id)->update($request->all());
+        $filtered =  array_filter($request->all());
+        $product = Product::find($id)->update($filtered);
         return $product;
     }
     public function delete($id)

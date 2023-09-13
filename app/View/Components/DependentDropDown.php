@@ -20,7 +20,8 @@ class DependentDropDown extends Component
     public int $existingChildRecordId;
     public string $childUrl;
     public string $childControllName;
-    public function __construct(LengthAwarePaginator $data, string $label, string $formControllName, int $existingRecordId, int $existingChildRecordId, string $childUrl, string $childControllName, string $childLabel)
+    public bool $disabled;
+    public function __construct(LengthAwarePaginator $data, string $label, string $formControllName, int $existingRecordId, int $existingChildRecordId, string $childUrl, string $childControllName, string $childLabel, bool $disabled)
     {
         $this->items = $data;
         $this->label = $label;
@@ -30,6 +31,7 @@ class DependentDropDown extends Component
         $this->childUrl = $childUrl;
         $this->childControllName = $childControllName;
         $this->childLabel = $childLabel;
+        $this->disabled = $disabled;
     }
 
 
